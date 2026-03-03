@@ -1,1 +1,0 @@
-# Email-OAuth2-Django-React-MySQL
