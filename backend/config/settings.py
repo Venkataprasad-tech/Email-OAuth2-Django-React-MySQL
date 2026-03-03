@@ -1,6 +1,9 @@
 import os
 import dj_database_url
 
+from dotenv import load_dotenv
+load_dotenv()
+
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,12 +35,6 @@ INSTALLED_APPS = [
     "rest_framework",
 
     'accounts',
-    'sessions',
-    'speech',
-    'nlp',
-    'emotion',
-    'confidence',
-    'reports',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +74,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
+    "default": dj_database_url.config(
+        default="postgresql://localhost/ai_english_coach",
+        conn_max_age=600
     )
 }
 
@@ -170,3 +168,4 @@ ALLOWED_HOSTS = [
     "fwnfxm8v-5173.inc1.devtunnels.ms",   
    
 ]
+
